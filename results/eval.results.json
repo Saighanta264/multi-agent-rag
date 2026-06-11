@@ -1,0 +1,238 @@
+{
+  "config": {
+    "llm": {
+      "provider": "auto",
+      "anthropic_model": "claude-opus-4-8",
+      "openai_model": "gpt-4o-mini",
+      "max_tokens": 1024
+    },
+    "retrieval": {
+      "embedding": "tfidf",
+      "chunking": "paragraph",
+      "chunk_size": 500,
+      "chunk_overlap": 80,
+      "top_k": 4
+    },
+    "agents": {
+      "max_revisions": 2,
+      "critic_enabled": true
+    },
+    "corpus_dir": "data/corpus",
+    "output_dir": "results"
+  },
+  "n_questions": 12,
+  "retrieval_grid": [
+    {
+      "chunking": "fixed",
+      "embedding": "tfidf",
+      "top_k": 4,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "chunking": "paragraph",
+      "embedding": "tfidf",
+      "top_k": 4,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "chunking": "recursive",
+      "embedding": "tfidf",
+      "top_k": 4,
+      "hit_at_k": 1.0,
+      "mrr": 1.0
+    },
+    {
+      "chunking": "fixed",
+      "embedding": "hashing",
+      "top_k": 4,
+      "hit_at_k": 0.917,
+      "mrr": 0.875
+    },
+    {
+      "chunking": "paragraph",
+      "embedding": "hashing",
+      "top_k": 4,
+      "hit_at_k": 0.917,
+      "mrr": 0.875
+    },
+    {
+      "chunking": "recursive",
+      "embedding": "hashing",
+      "top_k": 4,
+      "hit_at_k": 0.917,
+      "mrr": 0.875
+    }
+  ],
+  "feedback_experiment": {
+    "critic_on": {
+      "mean_term_coverage": 0.875,
+      "mean_revisions": 0.5,
+      "llm": "offline:extractive",
+      "per_question": [
+        {
+          "question": "How does speculative decoding speed up LLM inference?",
+          "coverage": 0.5,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why does the KV cache use so much GPU memory for long contexts?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What do query, key and value vectors do in self-attention?",
+          "coverage": 1.0,
+          "revisions": 2,
+          "feedback": [
+            "The draft does not address: self-attention. Retrieve and incorporate evidence covering these terms.",
+            "The draft does not address: self-attention. Retrieve and incorporate evidence covering these terms."
+          ]
+        },
+        {
+          "question": "What is the trade-off when quantizing a model to 4-bit precision?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "How does LoRA make fine-tuning large models cheaper?",
+          "coverage": 0.333,
+          "revisions": 2,
+          "feedback": [
+            "The draft does not address: lora. Retrieve and incorporate evidence covering these terms.",
+            "The draft does not address: cheaper, lora. Retrieve and incorporate evidence covering these terms."
+          ]
+        },
+        {
+          "question": "How does retrieval-augmented generation reduce hallucination?",
+          "coverage": 0.667,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why do language models use subword tokenization like BPE?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What does the router do in a mixture-of-experts model?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "How is the reward model used in RLHF?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What is the difference between HNSW and IVF indexes?",
+          "coverage": 1.0,
+          "revisions": 2,
+          "feedback": [
+            "The draft does not address: difference. Retrieve and incorporate evidence covering these terms.",
+            "The draft does not address: difference. Retrieve and incorporate evidence covering these terms."
+          ]
+        },
+        {
+          "question": "Why does mixed-precision training need loss scaling?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why does changing one byte of a prompt prefix break prompt caching?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        }
+      ]
+    },
+    "critic_off": {
+      "mean_term_coverage": 0.875,
+      "mean_revisions": 0,
+      "llm": "offline:extractive",
+      "per_question": [
+        {
+          "question": "How does speculative decoding speed up LLM inference?",
+          "coverage": 0.5,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why does the KV cache use so much GPU memory for long contexts?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What do query, key and value vectors do in self-attention?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What is the trade-off when quantizing a model to 4-bit precision?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "How does LoRA make fine-tuning large models cheaper?",
+          "coverage": 0.333,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "How does retrieval-augmented generation reduce hallucination?",
+          "coverage": 0.667,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why do language models use subword tokenization like BPE?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What does the router do in a mixture-of-experts model?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "How is the reward model used in RLHF?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "What is the difference between HNSW and IVF indexes?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why does mixed-precision training need loss scaling?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        },
+        {
+          "question": "Why does changing one byte of a prompt prefix break prompt caching?",
+          "coverage": 1.0,
+          "revisions": 0,
+          "feedback": []
+        }
+      ]
+    },
+    "coverage_gain_from_feedback": 0.0
+  }
+}

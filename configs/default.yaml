@@ -1,0 +1,21 @@
+# Default configuration. Runs fully offline (no API key needed);
+# set ANTHROPIC_API_KEY or OPENAI_API_KEY and the same config switches to a real LLM.
+llm:
+  provider: auto          # auto | anthropic | openai | offline
+  anthropic_model: claude-opus-4-8
+  openai_model: gpt-4o-mini
+  max_tokens: 1024
+
+retrieval:
+  embedding: tfidf        # tfidf | hashing | openai
+  chunking: paragraph     # paragraph | fixed | recursive
+  chunk_size: 500
+  chunk_overlap: 80
+  top_k: 4
+
+agents:
+  max_revisions: 2        # critic's revision budget - bounds the feedback loop
+  critic_enabled: true
+
+corpus_dir: data/corpus
+output_dir: results

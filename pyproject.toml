@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "marag"
+version = "0.1.0"
+description = "Multi-agent RAG: planner/retriever/critic agents with shared memory over a FAISS index"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Hem Ratna Sai Ghanta" }]
+keywords = ["rag", "multi-agent", "langgraph", "langchain", "faiss", "llm"]
+dependencies = [
+  "langchain>=1.0",
+  "langgraph>=1.0",
+  "langchain-text-splitters",
+  "faiss-cpu",
+  "numpy",
+  "scikit-learn",
+  "pyyaml",
+  "anthropic",
+  "openai",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+marag = "marag.cli:main"
+marag-eval = "marag.eval:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Tooling
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets - never commit keys
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep committed sample results; ignore ad-hoc local runs
+results/local_*/

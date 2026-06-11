@@ -1,0 +1,16 @@
+# Core
+langchain>=1.0
+langgraph>=1.0
+langchain-text-splitters
+faiss-cpu
+numpy
+scikit-learn
+pyyaml
+
+# LLM providers (used when ANTHROPIC_API_KEY / OPENAI_API_KEY is set;
+# the system runs fully offline without either)
+anthropic
+openai
+
+# Tests
+pytest>=7

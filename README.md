@@ -125,6 +125,7 @@ src/marag/
 data/corpus/     # 12 short technical articles (the knowledge base)
 tests/           # 30 tests incl. scripted-critic loop behaviour
 docs/REPORT.md   # technical write-up incl. the critic failure mode
+docs/UNDERSTANDING.md  # guided tour: concepts, architecture, code, results, Q&A
 ```
 
 ## Engineering practices
